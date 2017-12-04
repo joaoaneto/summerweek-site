@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HelloController {
+public class HomeController {
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String showHelloWorldPage(ModelMap model) {
-		return "hello";
+	public String showHomePage(ModelMap model) {
+		return "index";
 	}
 	
 }
