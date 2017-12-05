@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<title>SpringSocialFacebook</title>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+ content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"></link>
+<style type="text/css">
+#features {
+ text-align: center;
+}
+
+#features img {
+ margin: 0 0 20px;
+}
+</style>
+</head>
+<body class="container">
+
+ <div class="navbar bg-primary navbar-fixed-top">
+  <div class="container">
+   <div class="navbar-header">
+
+    <a class="navbar-brand font-weight-bold">SpringSocialFacebook</a>
+   </div>
+   <ul class="nav navbar-nav navbar-right">
+
+    <li><img th:src="${userimg}" /> <span
+     th:text="${facebookProfile.name}"></span></li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+
+
+ <h4>Here is your feed:</h4>
+
+ <div th:each="post:${feed}">
+  <div class="col-sm-4 feature">
+   <div class="row">
+    <div class="panel">
+     <div class="panel-heading">
+      <h3 class="panel-title" th:text="${post.from.name}"></h3>
+     </div>
+
+     <!-- <b th:text="${post.from.name}">from</b> wrote:-->
+
+     <img class="img-thumbnail" th:if="${post.picture}"
+      th:src="${post.picture}" />
+     <p class="text-justify" th:text="${post.message}">message text</p>
+
+    </div>
+   </div>
+  </div>
+ </div>
+</body>
+</html>
