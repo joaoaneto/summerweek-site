@@ -1,8 +1,10 @@
 package br.upe.summerweek.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
+	private boolean isAdmin; 
 	private String name;
 	private String password;
 	private String sex;
@@ -10,6 +12,7 @@ public class User {
 	private String email;
 	private String university;
 	private String course;
+	private ArrayList<Integer> listActivities;
 	
 	public void setName(String pName){
 		name = pName;
@@ -39,6 +42,14 @@ public class User {
 		course = pCourse;
 	}
 	
+	public void addActivitie(int pID){
+		listActivities.add(pID); 
+	}
+	
+	public void setAdmin(boolean pAdmin){
+		isAdmin = pAdmin;
+	}
+	
 	public String getName(){
 		return name;
 	}
@@ -65,5 +76,13 @@ public class User {
 	
 	public String getCourse(){
 		return course;
+	}
+	
+	public ArrayList<Integer> getListActivities(){
+		return listActivities;
+	}	
+	
+	public boolean isAdmin(){
+		return isAdmin;
 	}
 }
