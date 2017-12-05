@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+/*@Controller
 @RequestMapping("/test")
 public class FBController {
 
@@ -41,4 +41,4 @@ public class FBController {
 		
 	}
 	
-}
+}*/
