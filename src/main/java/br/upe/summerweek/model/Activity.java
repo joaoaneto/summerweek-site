@@ -14,7 +14,7 @@ public class Activity {
 		this.name = pName;
 	}
 	
-	public void setType(String ptype){
+	public void setType(String pType){
 		this.type = pType;
 	}
 
