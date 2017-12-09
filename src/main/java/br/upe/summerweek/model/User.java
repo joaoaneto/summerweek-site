@@ -2,15 +2,20 @@ package br.upe.summerweek.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
 	private String name;
 	private String password;
 	private String sex;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
+	
 	private String email;
 	private String university;
 	private String course;
-	
+
 	public void setName(String pName){
 		name = pName;
 	}
@@ -66,4 +71,6 @@ public class User {
 	public String getCourse(){
 		return course;
 	}
+	
+	
 }

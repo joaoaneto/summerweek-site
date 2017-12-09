@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
   <head>
 
@@ -101,25 +101,25 @@
                         <h5 class="text-center">ou</h5>
                         <div class="row pt-2">
                             <div class="col-lg-8 offset-lg-2">
-                                <form id="register-form" role="form">
+                                <form action="#"  th:action="@{/signup}" th:object="${user}" id="register-form" role="form" method="post" >
                                     <div class="form-group">
-                                        <input  type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nome">
+                                        <input th:field="*{name}" type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nome" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Endereço de email">
+                                        <input th:field="*{email}" type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Endereço de email">
                                     </div>
                                     <div class="form-group">
                                         <label>Data de Nascimento</label>
-                                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        <input th:field="*{birthday}" class="form-control" type="date" value="2011-08-19" id="example-date-input">
                                     </div>
                                     <div class="form-group">
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Feminino</option>
-                                            <option>Masculino</option>
+                                        <select th:field="*{sex}" id="inputState" class="form-control">
+                                            <option th:value="Female" selected>Feminino</option>
+                                            <option th:value="Male">Masculino</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">
+                                        <input th:field="*{password}" type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmação de Senha">
