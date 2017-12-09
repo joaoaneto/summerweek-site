@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Semana de Verão UPE Caruaru</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <link href="css/login.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.png" />
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Semana de Verão UPE Caruaru</a> -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-md-6 offset-sm-3">
+                <div class="card">
+                    <div class="card-header pt-4">
+                            <div class="row">
+                                <div class="text-center offset-md-5">
+                                    <a href="#" class="active" id="login-form-link">Entre</a>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    <div class="card-body">
+                        <div class="pb-3 offset-2">
+                            <button style="background-color: #3b5998" type="button" class="btn btn-primary btn-lg">Entre com o Facebook</button>                            
+                        </div>
+                        <h5 class="text-center">ou</h5>
+                        <div class="row pt-2">
+                            <div class="col-lg-8 offset-lg-2">
+                                <form action="#"  th:action="@{/signin}" th:object="${user}" id="register-form" role="form" method="post" >
+                                    <div class="form-group">
+                                        <input th:field="*{email}" type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Endereço de email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input th:field="*{password}" type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 offset-sm-3">
+                                        <!--<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Próximo">-->
+                                            <button type="submit" class="form-control btn btn-register">Login</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-dark text-white">
+      <div class="container text-center">
+        <small><br>UPE Caruaru, 2018. Todos os direitos reservados.<br><br></small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+  </body>
+
+</html>
