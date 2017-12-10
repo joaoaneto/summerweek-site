@@ -33,52 +33,20 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Semana de Verão UPE Caruaru</a> -->
+         <a class="navbar-brand js-scroll-trigger" href="#"><img src="../img/favicon.png"><small>Semana de Verão UPE Caruaru</small></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <li class="dropdown" style="list-style-type: none">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-            <ul id="login-dp" class="dropdown-menu">
-                <li>
-                <div class="row">
-                    <div class="col-md-12">
-                    Login via
-                    <div class="social-buttons">
-                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> <small>Facebook</small></a>
-                    
-                    </div>
-                                ou
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                    <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail2">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword2">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha" required>
-                                            <div class="help-block text-right"><a href="">Esqueceu a senha ?</a></div>
-                    </div>
-                    <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    </div>
-                    <div class="checkbox">
-                    <label>
-                    <input type="checkbox"> deixe-me logado
-                    </label>
-                    </div>
-                </form>
-                </div>
-            <div class="bottom text-center">
-                Novo aqui ? <a href="#"><b>Inscreva-se</b></a>
-            </div>
-        </div>
-        </li>
-      </ul>
-    </li>
+    	<div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" th:href="@{/}" href="#">Home</a>
+            </li>
+          </ul>
+      	</div>
       </div>
     </nav>
 
