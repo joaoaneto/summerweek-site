@@ -9,6 +9,15 @@ public class Activity {
 	private String name; /*Palestrante*/
 	private Date date;
 	private float hours;
+	
+	public Activity(String pType, String pTitle, String pDescription, 
+			String pName, Date pDate, float pHours) {
+		this.type = pType;
+		this.title = pTitle;
+		this.description = pDescription;
+		this.name = pName;
+		this.hours = pHours;
+	}
 
 	public void setName(String pName){
 		this.name = pName;
