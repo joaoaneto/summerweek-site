@@ -33,29 +33,38 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Semana de Verão UPE Caruaru</a> -->
+         <a class="navbar-brand js-scroll-trigger" href="#"><img src="../img/favicon.png"><small>Semana de Verão UPE Caruaru</small></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+    	<div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" th:href="@{/}" href="#">Home</a>
+            </li>
+          </ul>
+      	</div>
       </div>
     </nav>
 
     <div class="container pt-5 pb-5">
         <div class="row">
-            <div class="col-md-6 offset-sm-3">
+            <div class="col-md-7 offset-sm-3">
                 <div class="card">
                     <div class="card-header pt-4">
                             <div class="row">
                                 <div class="text-center offset-md-5">
-                                    <a href="#" class="active" id="login-form-link">Entre</a>
+                                	<p class="text-center"><a href="#" class="active" id="login-form-link">Faça seu login</a></p>
+                                    
                                 </div>
                             </div>
                             <hr>
                         </div>
                     <div class="card-body">
-                        <div class="pb-3 offset-2">
+                        <div class="pb-3 offset-3">
                             <button style="background-color: #3b5998" type="button" class="btn btn-primary btn-lg">Entre com o Facebook</button>                            
                         </div>
                         <h5 class="text-center">ou</h5>

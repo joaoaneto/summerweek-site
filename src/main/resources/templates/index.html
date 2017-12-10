@@ -40,13 +40,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-		<!-- <span sec:authorize="isAuthenticated()">
-               | Logged user: <span sec:authentication="name"></span> |
-               Roles: <span sec:authentication="principal.authorities"></span> |
-               <a th:href="@{/logout}">Sign Out</a>
-           </span>  -->
+		<ul th:if="${#httpServletRequest.getRemoteUser()}" class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+	          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	            <img src="/img/user.png" width="40px" height="40px" alt="Usuário" class="img-thumbnail rounded-circle">                      
+	          </a>
+	
+	          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+	            <a class="dropdown-item" th:text="${#httpServletRequest.getRemoteUser()}"></a>
+	            <div class="dropdown-divider"></div>              
+	            <a class="dropdown-item" href="#" th:href="@{/admin/panel}">Painel</a>
+	            <a class="dropdown-item" href="#" th:href="@{/logout}">Sair</a>
+	          </div>
+	        </li>
+         </ul>
 
-        <li class="dropdown" style="list-style-type: none">
+        <li th:if="${#httpServletRequest.getRemoteUser() == null}" class="dropdown" style="list-style-type: none">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
               <ul id="login-dp" class="dropdown-menu">
                 <li>
@@ -86,10 +95,6 @@
       </ul>
     </li>
 
-
-
-
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -100,12 +105,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">Palestrantes</a>
-            </li>
-
-
-
-
-            
+            </li>          
               <!--<a class="nav-link js-scroll-trigger" href="#login">Login</a>-->
           </ul>
         </div>
@@ -137,7 +137,7 @@
             <h2 class="section-heading text-white">Sobre a Semana de Verão</h2>
             <hr class="light my-4">
             <p class="text-faded mb-4">Através da colaboração entre alunos do curso de Sistemas de Informação, a UPE Caruaru e o seu Núcleo de Tecnologia da Informação (NTI) promovem a 1ª Semana de Verão de Palestras e Workshops. As atividades serão realizadas entre os dias 24 e 26 de Janeiro de 2018, no próprio campus da Universidade. A programação está repleta de conteúdos relacionados a Tecnologia (Redes, Segurança, Desenvolvimento Mobile e Web, etc.), Sound Design e Marketing Digital. Se tiver interesse em participar, clique no botão abaixo e cadastre-se! Estamos te esperando.</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#inscricao">Inscrever-se</a>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#" th:href="@{/signup}">Inscrever-se</a>
           </div>
         </div>
       </div>
