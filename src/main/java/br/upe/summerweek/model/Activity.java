@@ -44,24 +44,11 @@ public class Activity implements Serializable{
 	@Column(name = "hours")
 	private float hours;
 	
-	public Activity(String pType, String pTitle, String pDescription, 
-			String pName, Date pDate, float pHours) {
-		this.type = pType;
-		this.title = pTitle;
-		this.description = pDescription;
-		this.name = pName;
-		this.hours = pHours;
-	}
-
-	protected Activity() {
-
-	}
-	
 	public Activity(String pType, String pTitle, String pDescription, String pSpeakerName, Calendar pDate, float pHours) {
 		this.type = pType;
 		this.title = pTitle;
 		this.description = pDescription;
-		this. speakername = pSpeakerName;
+		this.speakername = pSpeakerName;
 		this.date = pDate;
 		this.hours = pHours;
 	}

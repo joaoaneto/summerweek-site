@@ -12,18 +12,21 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 @Controller
-@RequestMapping("/adminpanel")
+@RequestMapping("/admin/panel")
 public class AdminPanelController {
+	
+	private static final Calendar C = Calendar.getInstance();
 	
 	private static final List<Activity> TESTE = new ArrayList<>(Arrays.asList(
 			new Activity("palestra", "Palestra 01-2018", "essa é uma descrição"
-					+ " para a 01", "Silvano Neto", new Date(), 1.1f),
+					+ " para a 01", "Silvano Neto", C, 1.1f),
 			new Activity("palestra", "Palestra 02-2018", "essa é uma descrição"
-					+ " para a 01", "Lucas Feijó", new Date(), 1.2f),
+					+ " para a 01", "Lucas Feijó", C, 1.2f),
 			new Activity("palestra", "Palestra 03-2018", "essa é uma descrição"
-					+ " para a 01", "Matheusa", new Date(), 1.3f)));
+					+ " para a 01", "Matheusa", C, 1.3f)));
 	
 	@GetMapping
 	public String showAdminPanelPage(ModelMap model) {
