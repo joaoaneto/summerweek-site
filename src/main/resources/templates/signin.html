@@ -61,12 +61,17 @@
                         <h5 class="text-center">ou</h5>
                         <div class="row pt-2">
                             <div class="col-lg-8 offset-lg-2">
-                                <form action="#"  th:action="@{/signin}" th:object="${user}" id="register-form" role="form" method="post" >
+                                <form action="#"  th:action="@{/login}" id="register-form" role="form" method="post" >
+                                    <div th:if="${param.error}">
+				                        <div class="alert alert-danger">
+				                            Email ou senha inválidos.
+				                        </div>
+				                    </div>
                                     <div class="form-group">
-                                        <input th:field="*{email}" type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Endereço de email">
+                                        <input type="email" name="username" id="username" tabindex="1" class="form-control" placeholder="Endereço de email">
                                     </div>
                                     <div class="form-group">
-                                        <input th:field="*{password}" type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">
                                     </div>
                                     <hr>
                                     <div class="form-group">

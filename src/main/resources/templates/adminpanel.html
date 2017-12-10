@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Painel Admin - Semana de Verão UPE Caruaru</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/creative.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../img/favicon.png" />
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+         <a class="navbar-brand js-scroll-trigger" href="#"><img src="../img/favicon.png"><small>Semana de Verão UPE Caruaru</small></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+    	<div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#addActivity" href="#">Adicionar atividade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" th:href="@{/logout}" href="#">Sair</a>
+            </li>
+          </ul>
+      	</div>
+      </div>
+    </nav>
+    
+    <!-- Pou-ups -->
+    <div id="addActivity" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+    		<div class="modal-content">
+      			<div class="modal-header">
+      				<h4 class="modal-title">Adicionar Nova Atividade</h4>
+        			<button type="button" class="close" data-dismiss="modal">&times;</button>
+      			</div>
+      			<div class="modal-body">
+       				<form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="">
+                    	<div class="form-group">
+                    		Tipo:
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Palestra</label>
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Workshop</label>
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Outro</label>
+                    	</div>
+                    	<div class="form-group">
+                    		Título:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Descrição:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Nome do Palestrante:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Data:
+                    		<input type="date" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Hora:
+                    		<input type="time" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Duração (horas):
+                    		<select class="form-control" id="duracao" required>
+                    			<option>1</option>
+                    			<option>2</option>
+                    			<option>3</option>
+                    		</select>
+                    	</div>
+                    	<div class="form-group">
+                    		<button type="submit" class="btn btn-primary btn-block">Salvar</button>
+                    	</div>
+                	</form>
+      			</div>
+      			
+    		</div>
+  		</div>
+	</div>
+    
+    <div id="editActivity" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+    		<div class="modal-content">
+      			<div class="modal-header">
+      				<h4 class="modal-title">Editar Atividade</h4>
+        			<button type="button" class="close" data-dismiss="modal">&times;</button>
+      			</div>
+      			<div class="modal-body">
+       				<form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="">
+                    	<div class="form-group">
+                    		Tipo:
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Palestra</label>
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Workshop</label>
+                    		<label class="radio-inline"><input type="radio" name="tipo" id="tipo" required>Outro</label>
+                    	</div>
+                    	<div class="form-group">
+                    		Título:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Descrição:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Nome do Palestrante:
+                    		<input type="text" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Data:
+                    		<input type="date" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Hora:
+                    		<input type="time" class="form-control" required>
+                    	</div>
+                    	<div class="form-group">
+                    		Duração (horas):
+                    		<select class="form-control" id="duracao" required>
+                    			<option>1</option>
+                    			<option>2</option>
+                    			<option>3</option>
+                    		</select>
+                    	</div>
+                    	<div class="form-group">
+                    		<button type="submit" class="btn btn-primary btn-block">Salvar</button>
+                    	</div>
+                	</form>
+      			</div>
+      			
+    		</div>
+  		</div>
+	</div>
+
+	<div id="removeActivity" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+    		<div class="modal-content">
+      			<div class="modal-header">
+      				<h4 class="modal-title">Confirma a remoção da atividade?</h4>
+      			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Sim, eu confirmo exclusão!</button>
+				</div>
+      			
+    		</div>
+  		</div>
+	</div>
+	
+
+    <div class="container pt-1 pb-1">
+    	<br><h4><i>Atividades Cadastradas</i></h4>
+		<table class="table table-sm">
+          <tbody>
+            <tr th:each="atividade : ${activities}">
+              <td>
+              	<b><i th:text="${atividade.type}"></i></b><br>
+				<h4 th:text="${atividade.title}"></h4>
+				<i th:text="${atividade.getSpeakerName()}"></i><br>
+				<small> Data: </small><small th:text="${atividade.getDate().getTime()}"></small><br>
+				<small> Duração (horas): </small><small th:text="${atividade.hours}"></small><br>
+				<small>Descrição: </small><small th:text="${atividade.description}"></small>
+              </td>
+              <td>
+                <button type="button" class="btn" data-dismiss="modal" data-toggle="modal" data-target="#editActivity"><h1>✏</h1></button><br>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#removeActivity"><h1>♻</h1></button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+
+
+   	</div>
+
+
+    <footer class="bg-dark text-white">
+      <div class="container text-center">
+        <small><br>UPE Caruaru, 2018. Todos os direitos reservados.<br><br></small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/creative.min.js"></script>
+
+  </body>
+
+</html>

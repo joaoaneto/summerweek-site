@@ -17,13 +17,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.csrf().disable()
 			.authorizeRequests()
-				.antMatchers("/").permitAll()
+				.antMatchers("/css/**", "/img/**", "/js/**", "/scss/**", "/vendor/**", "/", "/index").permitAll()
 				.antMatchers("/admin/**").hasAnyRole("ADMIN")
 				.antMatchers("/user/**").hasAnyRole("USER")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
-				.loginPage("/sigin")
+				.loginPage("/login")
+				.defaultSuccessUrl("/", true)
 				.permitAll()
 				.and()
 			.logout()
@@ -39,9 +40,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Wait for JPA integration
 		
 		auth.inMemoryAuthentication()
-			.withUser("user").password("upe123").roles("USER")
+			.withUser("user@upe.br").password("{noop}upe123").roles("USER")
 			.and()
-			.withUser("admin").password("upe123").roles("ADMIN");
+			.withUser("admin@upe.br").password("{noop}upe123").roles("ADMIN");
 		
 	}
 	
