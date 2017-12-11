@@ -169,9 +169,14 @@
     		<div class="modal-content">
       			<div class="modal-header">
       				<h4 class="modal-title">Confirma a remoção da atividade?</h4>
+      				<p id="teste"></p>
+					<span id="sampleId"></span>
       			</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Sim, eu confirmo exclusão!</button>
+					<form action="#" th:action="@{/activity/remove}" method="get">
+						<input id="modalInfo" type="hidden" name="id">
+						<button type="submit" id="buttonModal" class="btn btn-primary btn-block">Sim, eu confirmo exclusão!</button>
+					</form>
 				</div>
       			
     		</div>
@@ -194,7 +199,7 @@
               </td>
               <td>
                 <button type="button" class="btn" data-dismiss="modal" data-toggle="modal" data-target="#editActivity"><h1>✏</h1></button><br>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#removeActivity"><h1>♻</h1></button>
+                <button type="button" data-id="${atividade.type}" th:attr="data-object=${atividade.getID()}" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#removeActivity"><h1>♻</h1></button>
               </td>
             </tr>
             
@@ -223,6 +228,15 @@
 
     <!-- Custom scripts for this template -->
     <script src="../js/creative.min.js"></script>
+    
+    <script>
+    
+    $('#removeActivity').on('shown.bs.modal', function (event) {
+   		$(".modal-title").text('Confirma a removação da atividade ' + $(event.relatedTarget).data('object') + '?');
+   		$("#modalInfo").attr("value", $(event.relatedTarget).data('object'));
+   	})
+    
+    </script>
 
   </body>
 
