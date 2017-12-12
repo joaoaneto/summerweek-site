@@ -63,11 +63,6 @@
 		</div>
 	</nav>
 
-	<div class="container">
-		<label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input"> <span
-			class="custom-control-indicator"></span> <span class="custom-control-description">Atividades disponíveis para inscrição</span>
-		</label>
-	</div>
 	<!-- Pou-ups -->
 
 	<div id="removeActivity" class="modal fade" role="dialog">
@@ -77,15 +72,23 @@
 				<div class="modal-header">
 					<h4 class="modal-title">Confirma a remoção da atividade?</h4>
 				</div>
+				
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-block"
-						data-dismiss="modal">Sim</button>
+					<div class = "container">
+					<form action="#" th:action="@{/userActivity/remove}" method="get">
+						<input id="modalInfo" type="hidden" name="activityID">
+						<input type="hidden" name="userID" value = "29">
+						<button type="submit" id="buttonModal" class="btn btn-primary btn-block">Sim</button>
+					</form>
 				</div>
+				</div>
+				
+				<div class = "container">
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary btn-block"
 						data-dismiss="modal">Não</button>
 				</div>
-
+				</div>
 			</div>
 		</div>
 	</div>
@@ -95,20 +98,69 @@
 
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Você foi inscrito nesta atividade!</h4>
+					<h4>Confirma a inscrição da atividade?</h4>
 				</div>
-
+				
+				<div class="modal-footer">
+					<div class = "container">
+					<form action="#" th:action="@{/userActivity/add}" method="get">
+						<input id="modalInfo2" type="hidden" name="activityID">
+						<input type="hidden" name="userID" value = "29">
+						<button type="submit" id="buttonModal" class="btn btn-primary btn-block">Sim</button>
+					</form>
+				</div>
+				</div>
+				
+				<div class = "container">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-block"
+						data-dismiss="modal">Não</button>
+				</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
 
-
+	<div class = "container">
+	<div class = "row">
+	<div class = col>
 	<div class="container pt-1 pb-1">
 		<br>
 		<h4>
 			<i>Suas atividades</i>
 		</h4>
+			<table class="table table-sm">
+			<tbody>
+				<tr th:each="atividades : ${userActivities}">
+					<td><b><i th:text="${atividades.type}"></i></b><br>
+						<h4 th:text="${atividades.title}"></h4> <i
+						th:text="${atividades.getSpeakerName()}"></i><br> <small>
+							Data: </small><small th:text="${atividades.getDate().getTime()}"></small><br>
+						<small> Duração (horas): </small><small
+						th:text="${atividades.hours}"></small><br> <small>Descrição:
+					</small><small th:text="${atividades.description}"></small></td>
+					<td>
+						<button type="button" data-id="${atividades.type}" th:attr="data-object=${atividades.getID()}" class="btn btn-danger btn-sm" data-dismiss="modal"
+							data-toggle="modal" data-target="#removeActivity">
+							<h1>♻</h1>
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+	</div>
+	
+		<div class = col>
+	<div class="container pt-1 pb-1">
+		<br>
+		<h4>
+			<i>Atividades disponíveis</i>
+		</h4>
+	
 		<table class="table table-sm">
 			<tbody>
 				<tr th:each="atividade : ${activities}">
@@ -120,22 +172,20 @@
 						th:text="${atividade.hours}"></small><br> <small>Descrição:
 					</small><small th:text="${atividade.description}"></small></td>
 					<td>
-						<button type="button" class="btn btn-primary" data-dismiss="modal"
+						<button type="button" data-id="${atividade.type}" th:attr="data-object=${atividade.getID()}" class="btn btn-primary" data-dismiss="modal"
 							data-toggle="modal" data-target="#addActivity">
 							<h1>+</h1>
 						</button> <br>
-						<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"
-							data-toggle="modal" data-target="#removeActivity">
-							<h1>♻</h1>
-						</button>
+						
 					</td>
 				</tr>
 
 			</tbody>
 		</table>
-
 	</div>
-
+	</div>
+	</div>
+	</div>
 
 	<footer class="bg-dark text-white">
 		<div class="container text-center">
@@ -155,7 +205,21 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="../js/creative.min.js"></script>
-
+	
+	 
+    <script>
+    
+    $('#removeActivity').on('shown.bs.modal', (event) => {
+   		$(".modal-title").text('Confirma a removação da atividade ' + $(event.relatedTarget).data('object') + '?');
+   		$("#modalInfo").attr("value", $(event.relatedTarget).data('object'));
+   	})
+    
+   	 $('#addActivity').on('shown.bs.modal', (event) => {
+   		$("#modalInfo2").attr("value", $(event.relatedTarget).data('object'));
+   	})
+    
+   	
+    </script>
 </body>
 
 </html>
