@@ -39,6 +39,7 @@ public class Activity implements Serializable{
 
 	@Column(name = "date")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Calendar date;
 
 	@Column(name = "hours")
@@ -59,7 +60,7 @@ public class Activity implements Serializable{
 		return this.id;
 	}
 
-	public void setName(String pSpeakerName){
+	public void setSpeakername(String pSpeakerName){
 		this.speakername = pSpeakerName;
 	}
 
@@ -95,7 +96,7 @@ public class Activity implements Serializable{
 		return this.description;
 	}
 
-	public String getSpeakerName(){
+	public String getSpeakername(){
 		return this.speakername;
 	}
 
