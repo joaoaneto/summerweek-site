@@ -82,9 +82,15 @@
                                     </div>
                                     <div class="form-group">
                                         <select th:field="*{sex}" id="inputState" class="form-control">
-                                            <option th:value="Female" selected>Feminino</option>
-                                            <option th:value="Male">Masculino</option>
+                                            <option th:value="Feminino" selected>Feminino</option>
+                                            <option th:value="Masculino">Masculino</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input th:field="*{university}" type="text" name="university" id="university" tabindex="1" class="form-control" placeholder="Instituição de Ensino">
+                                    </div>
+                                    <div class="form-group">
+                                        <input th:field="*{course}" type="text" name="course" id="course" tabindex="1" class="form-control" placeholder="Curso">
                                     </div>
                                     <div class="form-group">
                                         <input th:field="*{password}" type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" formControlName="password">

@@ -38,7 +38,7 @@ public class User implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "birthday")
 	@Temporal(TemporalType.DATE)
 	private Calendar birthday;
@@ -53,12 +53,11 @@ public class User implements Serializable {
 	private String course;
 	
 	@Column(name = "listActivities")
-	private ArrayList<Integer> listActivities;
+	private ArrayList<Long> listActivities = new ArrayList<Long>();
 	
 	public User(){}
 	
-	public User(boolean pIsAdmin, String pName, String pPassword, String pSex, Calendar pBirthday, String pEmail, String pUniversity, String pCourse) {
-		this.isAdmin = pIsAdmin;
+	public User(String pName, String pPassword, String pSex, Calendar pBirthday, String pEmail, String pUniversity, String pCourse) {
 		this.name = pName;
 		this.password = pPassword;
 		this.sex = pSex;
@@ -100,7 +99,7 @@ public class User implements Serializable {
 		course = pCourse;
 	}
 	
-	public void addActivitie(int pID){
+	public void addActivity(long pID){
 		listActivities.add(pID); 
 	}
 	
@@ -135,7 +134,7 @@ public class User implements Serializable {
 	public String getCourse(){
 		return course;
 	}
-	public ArrayList<Integer> getListActivities(){
+	public ArrayList<Long> getListActivities(){
 		return listActivities;
 	}	
 	

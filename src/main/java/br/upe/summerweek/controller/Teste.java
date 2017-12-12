@@ -61,7 +61,7 @@ public class Teste {
 		date.set(Calendar.MONTH, Calendar.JANUARY); 
 		date.set(Calendar.DAY_OF_MONTH, 15);
 		
-		rep.save(new User(false, "Lucas Mortadela", "123456", "Masculino", date, "lucasfjportela@lalala.com", "Universidade de Pernambuco", "Sistemas de Informação"));
+		rep.save(new User("Lucas Mortadela", "123456", "Masculino", date, "lucasfjportela@lalala.com", "Universidade de Pernambuco", "Sistemas de Informação"));
 		return "Done";
 	}
 	
@@ -70,8 +70,7 @@ public class Teste {
 		Optional<User> u = rep.findById(2L);
 		User teste = u.get();
 		
-		String result = teste.isAdmin() + "<br>" + 
-						"Nome: " + teste.getName() + "<br>" + 
+		String result = "Nome: " + teste.getName() + "<br>" + 
 						"Password: " + teste.getPassword() + "<br>" +
 						"Sexo: " + teste.getSex() + "<br>" +
 						"Data de Nascimento: " + teste.getBirthday() +
