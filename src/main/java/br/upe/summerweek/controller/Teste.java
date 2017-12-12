@@ -40,7 +40,7 @@ public class Teste {
 		String result = linda.getTitle() + "<br>" + 
 						"Descrição: " + linda.getDescription() + "<br>" + 
 						"Tipo: " + linda.getType() + "<br>" +
-						"Palestrante: " + linda.getSpeakerName() + "<br>" +
+						"Palestrante: " + linda.getSpeakername() + "<br>" +
 						"Horas: " + linda.getHours() + "<br>" +
 						"Data: " + linda.getDate();
 		

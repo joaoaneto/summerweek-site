@@ -63,7 +63,7 @@ public class AttendeePanelController {
 		public String addActivityForUser(@RequestParam("userID") String userID, @RequestParam("activityID") String activityID) {
 
 			User u = userRep.findById(Long.parseLong(userID)).get();
-			u.addActivitie(Long.parseLong(activityID));
+			u.addActivity(Long.parseLong(activityID));
 			userRep.save(u);
 
 			return "redirect:/attendee/panel";
